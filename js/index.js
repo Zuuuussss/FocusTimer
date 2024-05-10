@@ -1,5 +1,7 @@
 //DOM
 //Document Objetc Model //event-driver
+import "./timer.js"
+import "./controls.js"
 
 const buttonPause = document.querySelector(".pause")
 const buttonPlay = document.querySelector(".play")
@@ -9,42 +11,8 @@ const buttonSoundOn = document.querySelector(".sound-on")
 const buttonSoundOff = document.querySelector(".sound-off")
 const minutesDisplay = document.querySelector(".minutes")
 const secondsDisplay = document.querySelector(".seconds")
-let minutes
-
-function resetcontrols() {
-  buttonPlay.classList.remove("hide")
-  buttonPause.classList.add("hide")
-  buttonSet.classList.remove("hide")
-  buttonStop.classList.add("hide")
-}
-
-function updatetimerdisplay(minutes, seconds) {
-  minutesDisplay.textContent = String(minutes).padStart(2, "0")
-  minutesDisplay.textContent = String(seconds).padStart(2, "0")
-}
-
-function countdown() {
-  setTimeout(function () {
-    let seconds = Number(secondsDisplay.textContent)
-    let minutes = Number(minutesDisplay.textContent)
-
-    updatetimerdisplay(minutes, 0)
-
-    if (minutes <= 0) {
-      resetcontrols()
-      return
-    }
-
-    if (seconds <= 0) {
-      seconds = 2
-      --minutes
-    }
-
-    updatetimerdisplay(minutes, String(seconds - 1))
-
-    countdown()
-  }, 1000)
-}
+let minutes = Number(minutesDisplay.textContent)
+let timerTimeOut
 
 buttonPlay.addEventListener("click", function () {
   buttonPlay.classList.add("hide")
@@ -62,6 +30,7 @@ buttonPause.addEventListener("click", function () {
 
 buttonStop.addEventListener("click", function () {
   resetcontrols()
+  resettimer()
 })
 
 buttonSoundOff.addEventListener("click", function () {
@@ -70,11 +39,17 @@ buttonSoundOff.addEventListener("click", function () {
 })
 
 buttonSoundOn.addEventListener("click", function () {
-  buttonSoundOff.classList.remove("hide")
   buttonSoundOn.classList.add("hide")
+  buttonSoundOff.classList.remove("hide")
 })
 
 buttonSet.addEventListener("click", function () {
-  minutes = prompt("quantos minutos?")
+  let newminutes = prompt("Quantos minutos?")
+  if (!newminutes) {
+    resettimer()
+    return
+  }
+
+  minutes = newminutes
   updatetimerdisplay(minutes, 0)
 })
