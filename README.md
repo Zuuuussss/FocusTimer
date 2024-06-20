@@ -15,7 +15,7 @@ Projeto desenvolvido durante o curso EXPLORER promovido pela Rocketseat para ens
 <br>
 
 <p align="center">
-  <img alt="projeto01 explorer" src="./img.readmi/1648577784510.jpg" width="100%">
+  <img alt="projeto01 explorer" src="./img.readme/image.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
@@ -29,9 +29,9 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 
 ## 💻 Projeto
 
-Um projeto feito para estudos de refaturamento e aplicação do Java script introduzido em uma pequena calculadora de IMC.
+Um projeto feito para estudos de refaturamento e aplicação do Java script com module para um Cronometro de foco.
 
-- [Acesse o projeto finalizado, online](https://zuuuussss.github.io/IMC/)
+- [Acesse o projeto finalizado, online](https://zuuuussss.github.io/FocusTimer/)
 
 Esse projeto está sob a licença MIT.
 
