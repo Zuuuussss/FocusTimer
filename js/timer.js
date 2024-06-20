@@ -22,12 +22,14 @@ export default function Timer({
     timerTimeOut = setTimeout(function () {
       let seconds = Number(secondsDisplay.textContent)
       let minutes = Number(minutesDisplay.textContent)
-      updateDisplay(minutes, 0)
       let isFinished = minutes <= 0 && seconds <= 0
+
+      updateDisplay(minutes, 0)
 
       if (isFinished) {
         resetControls()
         updateDisplay()
+        updateDisplay(minutes, 0)
         Sounds().timeEnd()
         return
       }
